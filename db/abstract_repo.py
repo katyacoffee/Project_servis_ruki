@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
-from typing_extensions import Protocol
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, Protocol
 
 
 class Model(Protocol):  # pylint: disable=too-few-public-methods

@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from task import init_repo, get_numbers
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def execute() -> list[str]:
+    print('Enter company name:')
+    company_name = input()
+    repo = init_repo()
+    all_contact_pages = repo.get_contact_pages_for_company(company_name)
+    if len(all_contact_pages) == 0:
+        print('Error: company ' + company_name + ' not found')
+        return []
+    numbers = []
+    for page in all_contact_pages:
+        numbers.extend(get_numbers(page))
+    print(numbers)
+    return numbers
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    execute()

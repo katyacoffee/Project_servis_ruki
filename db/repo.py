@@ -1,6 +1,4 @@
-from inspect import get_annotations
 import sqlite3 as sql
-
 from .abstract_repo import AbstractRepository, T
 
 
